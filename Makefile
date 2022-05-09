@@ -1,7 +1,7 @@
 S3_BUCKET ?=s3://bucket_name
 APP_NAME ?=Annotation App
 
-.PHONY: upload build
+.PHONY: upload build package
 
 upload:
 	${INFO} "Zipping $(APP_NAME)"
@@ -14,6 +14,11 @@ build:
 	${INFO} "Docker build $(APP_NAME)"
 	@ docker build -t app:latest -f src/Dockerfile src/
 	${INFO} "Building completed."
+
+package:
+	${INFO} "Packaging $(APP_NAME)"
+	@ pip install wheel build
+	@ python -m build --wheel
 
 # Cosmetics
 YELLOW := "\e[1;33m"
