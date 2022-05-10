@@ -1,0 +1,16 @@
+AWSTemplateFormatVersion: 2010-09-09
+Description: Continuous deployment template creating required infrastructure for app codepipeline
+
+Parameters:
+  SourceBucketName:
+    Description: Name of the S3 bucket used as source for CodePipeline
+    Type: String
+    Default: "sample-app-s3-source"
+
+Resources:
+  SourceBucket:
+    Type: AWS::S3::Bucket
+    Properties:
+      BucketName: !Ref SourceBucketName
+      VersioningConfiguration:
+        Status: Enabled
