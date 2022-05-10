@@ -1,7 +1,7 @@
 S3_BUCKET := $$(cat ../.cf/template.yaml | shyaml get-value Parameters.SourceBucketName.Default)
-APP_NAME ?=Annotation App
+APP_NAME ?=Sample App
 
-.PHONY: upload package
+.PHONY: upload package run_docker
 
 upload:
 	${INFO} "Uploading to S3 Bucket $(S3_BUCKET)"
@@ -11,10 +11,13 @@ upload:
 
 package:
 	${INFO} "Packaging $(APP_NAME)"
-	@ pip install wheel build
-	@ python -m build --wheel
-	${INFO} "Zipping $(APP_NAME)"
-	@ zip -r package.zip dist/
+	@ zip -x "app/Dockerfile" -r package.zip app/
+
+run_docker:
+	${INFO} "Build Docker Image"
+	@ docker build -t app:latest app/.
+	${INFO} "Run $(APP_NAME) in docker"
+	@ docker run --rm -p 5000:5000 test:latest
 
 # Cosmetics
 YELLOW := "\e[1;33m"
