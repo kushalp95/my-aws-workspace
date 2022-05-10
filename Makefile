@@ -17,7 +17,7 @@ run_docker:
 	${INFO} "Build Docker Image"
 	@ docker build -t app:latest app/.
 	${INFO} "Run $(APP_NAME) in docker"
-	@ docker run --rm -p 5000:5000 test:latest
+	@ docker run --rm -p 5000:5000 app:latest
 
 # Cosmetics
 YELLOW := "\e[1;33m"
