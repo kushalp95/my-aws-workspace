@@ -8,7 +8,7 @@ RUN sudo apt-get update \
     && unzip awscliv2.zip \
     && sudo ./aws/install \
     && rm awscliv2.zip \
-    && pip install shyaml \
+    && pip install shyaml gunicorn \
     && rm -r ./aws \
     && sudo rm -rf /var/lib/apt/lists/*
 
