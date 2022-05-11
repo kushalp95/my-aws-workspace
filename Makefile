@@ -1,5 +1,6 @@
 S3_BUCKET := $$(cat ../.cf/template.yaml | shyaml get-value Parameters.SourceBucketName.Default)
 APP_NAME ?=Sample App
+APP_PORT :=8000
 
 .PHONY: upload package run_docker
 
@@ -17,7 +18,7 @@ run_docker:
 	${INFO} "Build Docker Image"
 	@ docker build -t app:latest app/.
 	${INFO} "Run $(APP_NAME) in docker"
-	@ docker run --rm -p 5000:5000 app:latest
+	@ docker run --rm -e APP_PORT=$(APP_PORT) -p $(APP_PORT):$(APP_PORT) app:latest
 
 # Cosmetics
 YELLOW := "\e[1;33m"
