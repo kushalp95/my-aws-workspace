@@ -5,7 +5,7 @@ app = Flask(__name__)
 
 @app.route('/')
 def hello_world():
-   return "Hello, World! Namaste"
+   return "Hello, World!"
 
 # Default app port
 app_port = 8000

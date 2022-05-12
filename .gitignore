@@ -2,3 +2,5 @@
 dist/
 build/
 app.*/
+*.log
+__pycache__
