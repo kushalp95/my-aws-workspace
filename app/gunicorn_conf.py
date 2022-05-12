@@ -13,7 +13,8 @@ if os.environ.get('APP_PORT') is not None:
 bind = '0.0.0.0:' + str(app_port)
 
 # Worker Options
-workers = (2* cpu_count()) + 1
+# prod (2* cpu_count()) + 1
+workers = 2
 
 # Reload
 reload_engine = 'inotify'

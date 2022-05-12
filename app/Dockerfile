@@ -14,5 +14,8 @@ RUN pip install -r requirements.txt
 COPY app.py .
 COPY gunicorn_conf.py .
 
+# Create logs folder
+RUN mkdir /logs
+
 # Start app with gunicorn with reload for debug
 CMD [ "gunicorn", "--reload", "-c", "gunicorn_conf.py", "app:app" ]
