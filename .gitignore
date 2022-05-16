@@ -4,3 +4,4 @@ build/
 app.*/
 *.log
 __pycache__
+appenv/
