@@ -8,4 +8,4 @@ Stargaze ![GitHub Repo stars](https://img.shields.io/github/stars/simorgh1/my-aw
 
 Provides Gitpod workspace for working with AWS Cloud
 
-[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/simorgh1/my-aws-workspace)
+[![Open in Gitpod](https://gitpod.io/button/open-in-gitpod.svg)](https://gitpod.io/#https://github.com/kushalp95/my-aws-workspace)
